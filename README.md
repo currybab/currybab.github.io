@@ -24,8 +24,6 @@ Fork this repo, then rename the repository to currybab.github.io.
 
 Your Jekyll blog will often be viewable immediately at <https://currybab.github.io> (if it's not, you can often force it to build by completing step 2)
 
-![Step 1](/images/step1.gif "Step 1")
-
 ### Step 2) Customize and view your site
 
 Enter your site name, description, avatar and many other options by editing the _config.yml file. You can easily turn on Google Analytics tracking, Disqus commenting and social icons here too.

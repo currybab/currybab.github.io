@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBNNUsgb7xJBLs3HLff8jjrcOHAuVSTgL0",
+        authDomain: "my-blog-c1aa7.firebaseapp.com",
+        databaseURL: "https://my-blog-c1aa7.firebaseio.com",
+        projectId: "my-blog-c1aa7",
+        storageBucket: "my-blog-c1aa7.appspot.com",
+        messagingSenderId: "355603069761"
+      };
+      firebase.initializeApp(config);
+    </script>
     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
 
     {% include meta.html %}

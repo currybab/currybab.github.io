@@ -7,6 +7,7 @@ permalink: /about/
 ### Short Career
 
 [CLAY(iOS Application, 2018.9~)](https://clay.one)
+
 [CoinManager(iOS Application, 2018.1~)](https://coinmanager.io)
 
 ### Contact me

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Jeykyll Now로 쉽게 github 블로그 시작하기
+categories: Diary
+tags: blog
 ---
 
 드디어 미루고 미루던 블로그를 시작하였다.

@@ -2,7 +2,12 @@
 layout: page
 title: About
 permalink: /about/
+icon: heart
+type: page
 ---
+
+* content
+{:toc}
 
 ### Short Career
 
@@ -13,3 +18,7 @@ permalink: /about/
 ### Contact me
 
 [pj2417@gmail.com](mailto:pj2417@gmail.com)
+
+## Comments
+
+{% include comments.html %}

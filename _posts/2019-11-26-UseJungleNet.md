@@ -21,7 +21,7 @@ tags: blockchain study EOS
 
 그리고 나서 alias cleos를 변경하였는데 `alias cleos='docker exec -it eosioJungle /opt/eosio/bin/cleos --wallet-url http://localhost:8888 -u https://jungle2.cryptolions.io:443'`와 같이 변경하였다. `https://jungle2.cryptolions.io:443`이 우리가 통신할 bp의 url이라고 보면 되겠다. 정글넷 홈페이지의 Api Endpoint라는 목록을 누르면 다음과 같이 목록이 뜬다
 
-![API Endpoint List](https://user-images.githubusercontent.com/7679722/48989523-ffcaa500-f16d-11e8-926d-5243e292c28f.png)
+![API Endpoint List](https://user-images.githubusercontent.com/7679722/48989523-ffcaa500-f16d-11e8-926d-5243e292c28f.png =480x)
 
 그냥 저중에서 뭔가 제일 신뢰가는 것 같이 보이는 것을 선택했다.(느낌상으로다가.....)
 

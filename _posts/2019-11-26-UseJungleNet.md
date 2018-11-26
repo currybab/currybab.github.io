@@ -10,7 +10,7 @@ tags: blockchain study EOS
 
 어쨌든 정글넷 2가 이제 막 런칭을 하였고, 어쩌다보니 나도 짜고 있는 컨트랙트를 테스트넷에 올려야할 계기가 생겨서 컨트랙트가 매우 초창기 단계이지만, 올려보고, 액션을 날리고, 디비에 잘 저장되었는지를 확인해보고자 한다.
 
-###계정 생성 및 정글 테스트넷 연결
+### 계정 생성 및 정글 테스트넷 연결
 <https://monitor.jungletestnet.io/>에 들어가면 계정생성, faucet 등을 해결할 수 있다. 임시로 내 컨트랙트 이름을 totagamelist라 만들었고 faucet을 통해 100 EOS를 전달 받았다. 상단 메뉴의 account info를 누르면 다음과 같이 100EOS를 전달 받았음을 확인할 수 있다.
 
 ![account info image](https://user-images.githubusercontent.com/7679722/48989264-d0ffff00-f16c-11e8-92b1-533070fa1a47.png)
@@ -28,7 +28,7 @@ tags: blockchain study EOS
 `cleos get accounts $publicKey`를 실행하면 내가 만든 계정을 확인할 수 있을 것이다.(잘 연결이 된것이 맞다면..!)
 
 
-###Contract 배포하기 및 동작 확인
+### Contract 배포하기 및 동작 확인
 이제 계정 생성도 마쳤고, 정글넷에 연결하는것도 되었으니 컨트랙트를 세팅할 시간이다. 방법은 로컬에서 진행하는 것과 당연히 같다!!
 ```
 cleos set contract totagamelist /eosContracts/tota/ -p totagamelist@active
@@ -44,7 +44,7 @@ cleos get table totagamelist totagamelist games --lower 2
 
 <https://developers.eos.io/eosio-cleos/reference#cleos-get-table>에 가면 더 다양한 검색방법을 찾을 수 있다.
 
-###DEBUG
+### DEBUG
 1. 최초에 지갑이 생성 되어 있지 않을 것이기 때문에 `cleos wallet create --to-console`을 통해 지갑을 생성해준다. 여기서 나오는 비밀번호는 이 컨테이너에서 해당 지갑의 비밀번호이기 때문에 신경써서 저장해준다. 이 후 `cleos wallet import`명령어를 통해 내가 사용할 private key를 등록해 준다.
 
 2. 컨트랙트를 setting하는 과정에서 램이 부족하다고 나는 뜨더라.... 아마 같은 확률일 것이다. 최초에 ram이 많지 않기 때문에... `cleos system buyram totagamelist totagamelist '5.0000 EOS'` 이런 식으로 입력하면 쉽게 5이오스를 해당 계정에 살 수 있다.

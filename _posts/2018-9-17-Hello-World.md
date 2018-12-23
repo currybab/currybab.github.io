@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jeykyll Now로 쉽게 github 블로그 시작하기
+title: Jekyll Now로 쉽게 github 블로그 시작하기
 categories: Diary
 tags: blog
 ---
@@ -15,7 +15,7 @@ medium에 계정도 만들어두고 steemit에도 계정을 만들어 두었지�
 
 첫글은 시작을 알리는 블로그 생성기이다! (사실 할게 별로 없당~)
 
-우선 [github](https://github.com) 계정을 생성한 후에, [Jeykyll now github page](https://github.com/barryclark/jekyll-now) 에 접속한다.
+우선 [github](https://github.com) 계정을 생성한 후에, [Jekyll now github page](https://github.com/barryclark/jekyll-now) 에 접속한다.
 
 접속을 하고 나면 상단에 Fork라는 이름의 버튼이 보이는데 해당 버튼을 눌러 내 계정에 포크를 뜬당
 
@@ -40,7 +40,7 @@ Repository Name을 계정이름.github.io으로 바꾸어 주면 세팅이 완�
 ```
 ---
 layout: post
-title: Jeykyll Now로 쉽게 github 블로그 시작하기
+title: Jekyll Now로 쉽게 github 블로그 시작하기
 ---
 ```
 과 같이 적은 후 아래에 글을 작성하면 된당!
@@ -51,11 +51,11 @@ title: Jeykyll Now로 쉽게 github 블로그 시작하기
 
 그래서 로컬에서 작성하고 로컬에서 페이지를 확인하고자 하는 방법을 적고자 한다.
 
-먼저 jeykell을 다운로드 받아야한다. 
+먼저 jekell을 다운로드 받아야한다. 
 나같은 경우에는 mac을 사용하기 때문에 기본으로 ruby가 깔려 있지만 없으신 분들은 2.2.5 이상의 버전을 받으라고 한다.
 
 ```
-gem install bundler jeykell
+gem install bundler jekell
 ```
 
 을 통해 다운로드 한다. 아.. 
@@ -86,7 +86,7 @@ vs code에 글을 적으면서 저장만하고 새로고침만 하면 바로바�
 ```
 ---
 layout: post
-title: Jeykyll Now로 쉽게 github 블로그 시작하기
+title: Jekyll Now로 쉽게 github 블로그 시작하기
 ---
 ```
 과 같이 적은 후 아래에 글을 작성하면 된당!  

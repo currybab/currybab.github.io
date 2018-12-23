@@ -23,6 +23,14 @@ type: page
 
     영지식 증명에 대한 글을 정리해 놓은 글. 안에 들어있는 awesome ZKP repo에도 좋은 자료가 많은 듯하나 시간이 없어서 이거 읽기도 요새 벅차당 ㅠㅠ
 
+#### EOS Contract
+
+* [EOS 개발자 포털](https://developers.eos.io/)
+
+* [EOS Contract 실제 사용 예](https://github.com/eoscostarica/eos-contracts)
+
+    eos costarica에서 정리해 놓은 글이다.
+
 
 ## Comments
 

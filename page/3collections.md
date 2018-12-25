@@ -9,7 +9,21 @@ type: page
 * content
 {:toc}
 
+# ~~(거의)~~ 매일 매일 업데이트~
+
 ## 공부 자료 정리
+
+#### Hash Function
+
+* [해시 함수란? 1부 이해편](https://blog.naver.com/tpinlab/10121477582)
+
+* [해시 함수란? 2부 심화편](http://blog.naver.com/tpinlab/10121517078)
+  
+* [해시 함수란? 3부 이론 1편](http://blog.naver.com/tpinlab/10121774937)
+
+* [해시 함수란? 4부 이론 2편](http://blog.naver.com/tpinlab/10121820313)
+
+    해시 함수에 대한 기초부터 SHA-512 계산 방법까지 설명 되있는 글. 무려 보안 전문 블로그의 글이당~
 
 #### BFT 계열 알고리즘
 

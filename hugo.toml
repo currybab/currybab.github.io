@@ -1,0 +1,42 @@
+baseURL = 'https://currybab.github.io/'
+languageCode = 'en-us'
+title = "currybab's devlog"
+theme = "paper"
+
+# disqusShortname = 'currybab'   # use disqus comments
+
+[params]
+    # color style
+    color = 'linen'                           # linen, wheat, gray, light
+
+    # header social icons
+    twitter = '__curry_dev__'               # twitter.com/YOUR_TWITTER_ID
+    github = 'currybab'                 # github.com/YOUR_GITHUB_ID
+    # instagram = 'YOUR_INSTAGRAM_ID'           # instagram.com/YOUR_INSTAGRAM_ID
+    linkedin = 'jun-park-933963145'             # linkedin.com/in/YOUR_LINKEDIN_ID
+    # mastodon = 'YOUR_MASTODON_LINK'           # e.g. 'https://mastodon.instance/@xxx'
+    rss = true                                # show rss icon
+
+    # home page profile
+    avatar = 'https://0.gravatar.com/avatar/75fcf84675a5cc52b201173970846c16a7194c58b6ef08b24089052cb9e67765?size=512'                 # gravatar email or image url
+    name = 'currybab'
+    bio = 'fullstack developer from South Korea'
+
+
+    # misc
+    disableHLJS = false                        # disable highlight.js
+    disablePostNavigation = false              # disable post navigation
+    monoDarkIcon = true                       # show monochrome dark mode icon
+    gravatarCdn = 'pj2417'         # e.g. 'https://cdn.v2ex.com/gravatar/'
+    math = true                               # enable KaTeX math typesetting globally
+    # graphCommentId = "YOUR_GRAPH_COMMENT_ID"  # use graph comment (disqus alternative)
+
+# giscus
+[params.giscus]
+    repo = 'YOUR_GISCUS_REPO'                 # see https://giscus.app for more details
+    repoId = 'YOUR_GISCUS_REPO_ID'
+    category = 'YOUR__GISCUS_CATEGORY'
+    categoryId = 'YOUR_GISCUS_CATEGORY_ID'
+    mapping = 'pathname'
+    theme = 'light'
+    lang = 'ko'

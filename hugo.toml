@@ -33,10 +33,13 @@ theme = "paper"
 
 # giscus
 [params.giscus]
-    repo = 'YOUR_GISCUS_REPO'                 # see https://giscus.app for more details
-    repoId = 'YOUR_GISCUS_REPO_ID'
-    category = 'YOUR__GISCUS_CATEGORY'
-    categoryId = 'YOUR_GISCUS_CATEGORY_ID'
+    repo = 'currybab/currybab.github.io'                 # see https://giscus.app for more details
+    repoId = 'MDEwOlJlcG9zaXRvcnkxNTE4NTI2ODI='
+    category = 'giscus'
+    categoryId = 'DIC_kwDOCQ0Wis4CdWCD'
     mapping = 'pathname'
     theme = 'light'
     lang = 'ko'
+    loading = 'lazy'
+    reactionsEnabled = true
+    

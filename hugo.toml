@@ -42,4 +42,8 @@ theme = "paper"
     lang = 'ko'
     loading = 'lazy'
     reactionsEnabled = true
+
+[services]
+  [services.googleAnalytics]
+    ID = 'G-V9Z0P2DKH2'
     

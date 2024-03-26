@@ -1,7 +1,7 @@
 +++
+categories = ['papers']
 title = 'Llama Pro 정리'
 date = 2024-03-26T14:08:18+09:00
-draft = true
 +++
 
 efficiently and effectively improving the model’s knowledge without catastrophic

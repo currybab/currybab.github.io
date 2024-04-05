@@ -33,6 +33,7 @@ forgetting
     - weight decay: 0.1
     - gradient clipping: 1.0
     - apply the flash-attention mechanism
+    - trained for a total of 15,900 (approximately 2830 H800 GPU hours)
 
 ### SFT Detail
 

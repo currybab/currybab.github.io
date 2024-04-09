@@ -113,7 +113,9 @@ Learning Rate Scheduler는 학습의 여러 단계에서 사용되는 학습 속
     - 1 : $T=S$인 코사인 LRS는 선형 LRS, Noam LRS, $T<S$인 코사인 LRS에 비해 학습률이 높은 훈련 기간이 더 김. 이 단계는 모델이 더 나은 글로벌 최적값을 찾는 데 도움이 될 수 있음.
     - 2 : $T=S$인 코사인 LRS는 $T>S$인 코사인 LRS 및 상수 LRS에 비해 학습률 감소의 어닐링 단계가 더 철저함. 이 단계에서는 모델이 더 나은 로컬 최적점을 찾을 수 있도록 하는 고유한 동적 현상이 발생할 수 있음.
 - 두가지를 결합하여 Warmup-Stable-Decay (WSD) scheduler를 제안함.
-    - $lr(s)=\begin{cases}\frac{s}{W}*\eta,\ when\ s< W\\\eta,\ when\ W<s<S\\f(s-S)*\eta,\ when\ S<s<S+D\end{cases}$
+    - $lr(s) = \frac{s}{W}*\eta$ ................. when $s<W$
+    - $lr(s) = \eta$ ........................... when $W<s<S$
+    - $lr(s) = f(s-S)*\eta$ ..... when $S<s<S+D$
     ![cosine_vs_wsd](https://github.com/currybab/currybab.github.io/assets/7679722/235896a7-922c-4ab8-b938-29af8a95be04)
     - 3개의 stage로 구성
         - warmup stage

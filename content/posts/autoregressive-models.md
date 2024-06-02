@@ -1,7 +1,9 @@
 +++
 title = 'Autoregressive Models'
 date = 2024-05-05T12:25:22+09:00
-draft = true
+categories = ['generation modeling']
+math = true
+tags = ['train']
 +++
 
 [Cornell CS 6785: Deep Generative Models. Lecture 3: Autoregressive Models](https://www.youtube.com/watch?v=Y3cJFaM8w2w&list=PL2UML_KCiC0UPzjW9BjO-IW6dqliu9O4B&index=3)
@@ -31,8 +33,10 @@ input features $X\in\{0,1\}^n$ 에 대해서 binary classification($Y\in\{0,1\}$
 - 이산 모델을 파라미터화한 모델을 다음과 같다고 가정함. $ p(Y=1|\text{x};\alpha) = f(\text{x}; \alpha)$
 - 로지스틱 회귀가 $ f(\text{x};\alpha)$의 한 예가 될 수 있음.
 
-$z(\alpha,\text{x}) = \alpha_0 + \sum_{i=1}^{n} \alpha_i \text{x}_i$라고 하면
-$ \sigma(z) =1/(1+e^{-z}) $ 일때, $ p_{logit}(Y=1|\text{x};\alpha) = \sigma(z(\alpha, \text{x}))$ 이 됨. 
+$ z(\alpha, \text{x}) = \alpha_0 + \sum_{i=1}^{n} \alpha_i \text{x}_i $ 라고 하면 
+
+$ \sigma(z) =1/(1+e^{-z}) $ 일때,
+$ p_{logit}(Y=1|\text{x};\alpha) = \sigma(z(\alpha, \text{x}))$ 이 됨. 
 
 - MLP에서는 $\text{h}(A,\text{b},\text{x})$를 input feature들의 non-linear transformation으로 보고 다음과 같이 적용할 수 있음. $p_{MLP}(Y=1|\text{x};\alpha, A, \text{b}) = \sigma(\alpha_0 + \sum_{i=1}^{h} \alpha_i h_i)$
     - flexibility가 증가함
@@ -52,7 +56,8 @@ $$ p_{logit}(X_3 = 1 | x_1, x_2 ; \alpha^3) = \sigma(\alpha_0^3 + \alpha_1^3 x_1
 
 우리의 모델에서 $p_{logit} (x_i|x_1,...,x_{i-1}; \alpha^i)$ 각 항은 conditional Bernoulli임.
 이를 나타내기 위해 $\hat{x}$를 사용하면,
-$$ \hat{x}_i = p(X_i=1|x_1,..., x_{i-1}; \alpha^i) = p(X_i=1|x_{<i}; \alpha^i) = \sigma(\alpha_0^i + \sum_{j=1}^{i-1} \alpha_j^i x_j)$$
+$$ \hat{x_i}  = p(X_i=1 | x_1,..., x_{i-1}; \alpha^i) = p(X_i=1|x_{<i}; \alpha^i) $$ 
+$$ = \sigma(\alpha_0^i + \sum_{j=1}^{i-1} \alpha_j^i x_j) $$
 
 우리가 $ \hat{x}_i$를 생각하는 방법은
 1. pixel i의 확률

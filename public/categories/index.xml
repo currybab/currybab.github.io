@@ -2,10 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on currybab&#39;s devlog</title>
-    <link>https://currybab.github.io/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on currybab&#39;s devlog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://currybab.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 May 2025 09:57:04 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ml Compiler</title>
+      <link>http://localhost:1313/categories/ml-compiler/</link>
+      <pubDate>Tue, 27 May 2025 09:57:04 +0900</pubDate>
+      <guid>http://localhost:1313/categories/ml-compiler/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tinygrad</title>
+      <link>http://localhost:1313/categories/tinygrad/</link>
+      <pubDate>Wed, 26 Mar 2025 11:24:04 +0900</pubDate>
+      <guid>http://localhost:1313/categories/tinygrad/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Generation Modeling</title>
+      <link>http://localhost:1313/categories/generation-modeling/</link>
+      <pubDate>Sat, 01 Jun 2024 21:37:33 +0900</pubDate>
+      <guid>http://localhost:1313/categories/generation-modeling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Papers</title>
+      <link>http://localhost:1313/categories/papers/</link>
+      <pubDate>Sun, 07 Apr 2024 13:32:17 +0900</pubDate>
+      <guid>http://localhost:1313/categories/papers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tpu</title>
+      <link>http://localhost:1313/categories/tpu/</link>
+      <pubDate>Mon, 18 Mar 2024 00:31:04 +0900</pubDate>
+      <guid>http://localhost:1313/categories/tpu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Note</title>
+      <link>http://localhost:1313/categories/note/</link>
+      <pubDate>Tue, 20 Feb 2024 07:50:44 +0900</pubDate>
+      <guid>http://localhost:1313/categories/note/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

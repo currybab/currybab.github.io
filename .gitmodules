@@ -1,3 +1,6 @@
 [submodule "themes/paper"]
 	path = themes/paper
 	url = git@github.com:currybab/hugo-paper.git
+[submodule "themes/hugo-bearblog"]
+	path = themes/hugo-bearblog
+	url = https://github.com/janraasch/hugo-bearblog.git

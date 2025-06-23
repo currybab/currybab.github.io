@@ -1,11 +1,103 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>currybab&#39;s devlog</title>
-    <link>https://currybab.github.io/</link>
-    <description>Recent content on currybab&#39;s devlog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Home on currybab&#39;s devlog</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Home on currybab&#39;s devlog</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://currybab.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 May 2025 09:57:04 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A friendly introduction to machine learning compilers and optimizers 요약</title>
+      <link>http://localhost:1313/blog/a-friendly-introduction-to-machine-learning-compilers-and-optimizers/</link>
+      <pubDate>Tue, 27 May 2025 09:57:04 +0900</pubDate>
+      <guid>http://localhost:1313/blog/a-friendly-introduction-to-machine-learning-compilers-and-optimizers/</guid>
+      <description>&lt;p&gt;최근에 내 분야와 정말 다르지만 ml comiler에 대한 관심이 정말 많아졌다. 가능하다면 다음 직업으로 삼아보고 싶은&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Chip Huyen의 &lt;a href=&#34;https://huyenchip.com/2021/09/07/a-friendly-introduction-to-machine-learning-compilers-and-optimizers.html&#34;&gt;A friendly introduction to machine learning compilers and optimizers&lt;/a&gt;를 읽고 정리해 보았다.&lt;/p&gt;&#xA;&lt;p&gt;아마도 시기가 좀 된 글이여서 업데이트가 필요할 수 있겠지만 전체적으로는 여전히 좋은 글일거라고 생각한다.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;1-컴파일러의-중간자-irintermediate-representation이란&#34;&gt;1. 컴파일러의 중간자, IR(Intermediate Representation)이란?&lt;/h2&gt;&#xA;&lt;p&gt;컴파일러의 핵심에는 ‘중간자’ 역할을 하는 **IR(Intermediate Representation, 중간 표현)**이 있습니다.&lt;br&gt;&#xA;이 IR은 소스 코드(고수준)의 연산 그래프에서 하드웨어가 이해할 수 있는 코드(저수준)로 번역될 때 거치는 형태입니다.&lt;br&gt;&#xA;머신러닝 모델에선 주로 연산(옵레이션) 그래프가 고수준 IR로 사용됩니다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tinygrad Unroll vs Upcast</title>
+      <link>http://localhost:1313/blog/tinygrad-unroll-vs-upcast/</link>
+      <pubDate>Wed, 26 Mar 2025 11:24:04 +0900</pubDate>
+      <guid>http://localhost:1313/blog/tinygrad-unroll-vs-upcast/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;1. Unroll (루프 펼치기)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;목적:&lt;/strong&gt; 커널 내의 &lt;strong&gt;루프(loop)&lt;/strong&gt; 를 최적화합니다. 루프의 반복 실행 오버헤드(조건 검사, 인덱스 증가, 분기 등)를 줄여 성능을 향상시키는 것이 주 목적입니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;작동 방식:&lt;/strong&gt; 루프의 반복 코드를 명시적으로 여러 번 풀어서 작성합니다. 예를 들어 4번 반복하는 루프를 2번 unroll하면, 루프는 2번만 돌지만 루프 본문 코드는 한 번에 2개의 원래 반복에 해당하는 연산을 수행하도록 변경됩니다. (&lt;code&gt;float2&lt;/code&gt; 사용 예시) 완전히 unroll하면 루프 자체가 사라지고 모든 반복이 순차적인 코드로 대체됩니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;적용 대상:&lt;/strong&gt; 주로 &lt;strong&gt;리덕션 축(reduction axis)&lt;/strong&gt; 과 같이 커널 스레드 &lt;em&gt;내부에서&lt;/em&gt; 반복적으로 수행되는 계산에 적용됩니다.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;효과:&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;루프 제어 오버헤드 감소.&lt;/li&gt;&#xA;&lt;li&gt;명시적인 코드로 인해 컴파일러가 추가적인 최적화(예: 명령어 스케줄링, 벡터화)를 수행할 가능성 증가.&lt;/li&gt;&#xA;&lt;li&gt;코드 크기가 증가할 수 있음.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;예시:&lt;/strong&gt; &lt;code&gt;Opt(OptOps.UNROLL, 0, 2)&lt;/code&gt;는 마지막 축(axis 0)에 대한 루프를 2번씩 펼칩니다. 원래 4번 반복했다면, 이제 루프는 2번만 돌고 각 반복마다 &lt;code&gt;float2&lt;/code&gt;를 사용하여 2개의 값을 처리합니다.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. Upcast (업캐스팅)&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Energy Based Model</title>
+      <link>http://localhost:1313/blog/energy-based-model/</link>
+      <pubDate>Sat, 01 Jun 2024 21:37:33 +0900</pubDate>
+      <guid>http://localhost:1313/blog/energy-based-model/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=W0rCcPKF4Yc&#34;&gt;Cornell CS 6785: Deep Generative Models. Lecture 11: Energy-Based Models&lt;/a&gt;를 보고 정리한 내용입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;energy-based-model&#34;&gt;Energy Based Model&lt;/h2&gt;&#xA;&lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;&#xA;&lt;p&gt;확률 분포 p(x)를 표현하는 것은 생성 모델링에서 중요한 도전 과제임.&#xA;확률 분포는 두가지 공통된 특징을 가짐.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;non-negativity: $ p(x) &amp;gt;= 0 $&lt;/li&gt;&#xA;&lt;li&gt;sum-to-one: $ \sum_{x} p(x) = 1 $ or $ \int p(x) dx=1 $&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;sum-to-one이 아주 중요한 특성인데 전체 volume이 1로 정해져있기때문에 train시에 데이터셋에 대해 likelihood를  maximize하다보면 포함되지 않은 다른 데이터들은 확률이 줄어든다는 것을 의미한다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Autoregressive Models</title>
+      <link>http://localhost:1313/blog/autoregressive-models/</link>
+      <pubDate>Sun, 05 May 2024 12:25:22 +0900</pubDate>
+      <guid>http://localhost:1313/blog/autoregressive-models/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=Y3cJFaM8w2w&amp;amp;list=PL2UML_KCiC0UPzjW9BjO-IW6dqliu9O4B&amp;amp;index=3&#34;&gt;Cornell CS 6785: Deep Generative Models. Lecture 3: Autoregressive Models&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-task-of-generation-modeling&#34;&gt;The Task of Generation Modeling&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://github.com/currybab/currybab.github.io/assets/7679722/0ee6f626-f170-4d6d-b55b-d5bef9c638c4&#34; alt=&#34;generative modeling&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;(강아지의) 이미지들 $x$에 대해 확률 분포 $p(x)$로부터 다음과 같은 목표를 달성할 수 있어야함.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Generation: $p(x)$에서 추출한 sample $x_new$가 강아지 같아야 함.&lt;/li&gt;&#xA;&lt;li&gt;Representation Learning: 이미지들이 갖고 있는 공통적인 특징에 대해 배울 수 있어야함.&lt;/li&gt;&#xA;&lt;li&gt;Density Estimation: $x$가 강아지 같을수록 $p(x)$가 높은 값을 가져야하며 아니라면 낮은 값을 가져야함.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;첫번째 스텝: 모델링 스테이지 - define model family - How to represent $p(x)$&lt;/li&gt;&#xA;&lt;li&gt;두번째 스텝: How to learn it&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;basic-autoregressive-models&#34;&gt;Basic Autoregressive Models&lt;/h2&gt;&#xA;&lt;p&gt;이 강의에서 주요 주제는 modeling handwrite digits임(mnist)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>LLaMA Architecture 정리</title>
+      <link>http://localhost:1313/blog/llama-architecture/</link>
+      <pubDate>Sun, 28 Apr 2024 00:02:57 +0900</pubDate>
+      <guid>http://localhost:1313/blog/llama-architecture/</guid>
+      <description>&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=Mn_9W1nCFLo&#34;&gt;LLaMA explained: KV-Cache, Rotary Positional Embedding, RMS Norm, Grouped Query Attention, SwiGLU&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/hkproj/pytorch-llama-notes/&#34;&gt;pytorch-llama-notes&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/te_llama/tutorial_accelerate_hf_llama_with_te.html&#34;&gt;Transformer Engine Doc&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;해당 글은 위의 유튜브를 보면서 추가적으로 궁금했던 부분들을 더 찾아보고 붙여 놓은 글입니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;llama-vs-gpt2&#34;&gt;LLaMA vs GPT2&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://github.com/currybab/currybab.github.io/assets/7679722/78fa6c89-072b-42ba-a1eb-97d2dd7aa69e&#34; alt=&#34;transformer_vs_llama&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;최초의 트랜스포머 아키텍처와 비교하면 사실 normalization이 각 블록의 앞으로 온점이 추가적으로 다르다.&#xA;원래는 뒤에 위치했었는데 이는 아마 Layer Normalization 이전에 Batch Normalization이 주로 레이어 뒤쪽에 위치했기 때문이 아닐까&amp;hellip;&#xA;어쨌든 GPT 2부터는 레이어 앞쪽으로 위치한다. layer normalization의 위치를 다룬 논문(&lt;a href=&#34;https://arxiv.org/pdf/2002.04745.pdf&#34;&gt;On Layer Normalization in the Transformer Architecture&lt;/a&gt;)이 GPT 2 이후에 나온 것은 조금 신기하긴 하다.&#xA;그 외에도 LayerNorm이 RMSNorm으로 대체 되었다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MiniCPM 정리</title>
+      <link>http://localhost:1313/blog/minicpm/</link>
+      <pubDate>Sun, 07 Apr 2024 13:32:17 +0900</pubDate>
+      <guid>http://localhost:1313/blog/minicpm/</guid>
+      <description>&lt;p&gt;소형 언어모델에 관심이 계속 생겨서 앞으로 관련된 좋은 학습 방법을 공부해보려고 한다.&#xA;오늘 정리해 볼 것은 MiniCPM의 &lt;a href=&#34;https://shengdinghu.notion.site/MiniCPM-Unveiling-the-Potential-of-End-side-Large-Language-Models-d4d3a8c426424654a4e80e42a711cb20&#34;&gt;technical report&lt;/a&gt;이다.&#xA;2.4B의 모델로도 상당히 좋은 벤치마크를 중국어와 영어 모두에서 기록하였다고 한다.&lt;/p&gt;&#xA;&lt;p&gt;뭔가 정리하고 싶었는데 사실상 번역이 된것 같기도 하고&amp;hellip;&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;MiniCPM은 edge-side llm 시리즈로 embedding layer를 제외한 2.4B 파라미터를 가진 MiniCPM-2B를 기반으로 함.&lt;/p&gt;&#xA;&lt;p&gt;Mistral-7B와 근사한 벤치마크 성적을 기록하였으며 중국어, 코딩, 수학에서는 더 뛰어난 성능을 가졌다고 함.&#xA;또한 Llama2-13B, MPT-30B, Falcon-40B와 같은 모델들보다 더 뛰어난 성능을 기록하였다고 함.&#xA;또한 (user 경험과 유사한 벤치마크인) MTBench에서 대표적인 오픈소스 모델들보다 더 뛰어난 성적을 거둠.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Llama Pro 정리</title>
+      <link>http://localhost:1313/blog/llama-pro/</link>
+      <pubDate>Tue, 26 Mar 2024 14:08:18 +0900</pubDate>
+      <guid>http://localhost:1313/blog/llama-pro/</guid>
+      <description>&lt;p&gt;해당 paper에서는 catastrophic forgetting을 효과적이고 효율적으로 해결하기 위한 구조로 Llama Pro 모델을 제안한다.&#xA;catastrpohic forgetting이란 LLM을 training할 때에 오래된 정보를 잊는 것을 의미한다.&#xA;예를 들어 code-llama는 llama2를 code-specific한 데이터셋으로 추가 훈련을 시킨 모델인데 코딩을 더 잘 이해하지만 그만큼 llama2에 비해서 일반적인 벤치마크에서 성능이 감소하였다.&#xA;해당 논문에서는 효과적인 post training 방법으로 block expansion을 제안한다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://github.com/currybab/currybab.github.io/assets/7679722/d0e59095-aa2a-4d2a-a835-f5391579df9c&#34; alt=&#34;attention_layer&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;사전-지식-llama-블록&#34;&gt;사전 지식: LLaMA 블록&lt;/h2&gt;&#xA;&lt;p&gt;라마 블록은 Multi Head Self Attention 블록과 (SwiGlu와 residual connection이 있는) position-wise FFN으로 이루어져있다.&#xA;라마 블록의 입력을 $x$, 출력을 $y$라고 하면,&#xA;$$ x\prime = x + MHSA(RMSNorm(x)) $$&#xA;$$ y = x\prime + FFN(RMSNorm(x\prime)) $$&#xA;입력 $x$가 sequence length $n$과 hidden dimension $d$를 가지고 있으면 $n \times d$ 차원을 갖게 된다. 출력 $y$ 역시도 같은 차원을 가진다. MHSA는 다음과 같이 정의된다&#xA;$$ MHSA(Q,K,V) = Concat(head_1,&amp;hellip;,head_h)W^{O} $$&#xA;$$ head_{i} = Attention(x W_{i}^{Q}, x W_{i}^{K}, x W_{i}^{V}) $$&#xA;$$ Attention(Q_i, K_i, V_i) = Softmax(\frac{Q_{i}K_{i}^{T}}{\sqrt{d_{k}}}) V_{i} $$&#xA;FFN 블록에서 라마는 SwiGLU 활성화 함수를 사용한다. $\otimes$는 element-wise multiplication을 의미한다.&#xA;$$ SwiGLU(x, W, V) = SiLU(xW) \otimes (xV) $$&#xA;$$ FFN(x) = SwiGLU(x, W_1, W_2)W_3 $$&#xA;$$ SiLU(x) = x \otimes \sigma(x) $$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TRC TPU v4 팁?</title>
+      <link>http://localhost:1313/blog/tpu-v4-info/</link>
+      <pubDate>Mon, 18 Mar 2024 00:31:04 +0900</pubDate>
+      <guid>http://localhost:1313/blog/tpu-v4-info/</guid>
+      <description>&lt;h2 id=&#34;tpu-v4-팁-아닐-수도&#34;&gt;TPU v4 팁 (아닐 수도)&lt;/h2&gt;&#xA;&lt;p&gt;최근 구글 &lt;a href=&#34;https://sites.research.google/trc/about/&#34;&gt;TPU Research Cloud&lt;/a&gt;를 통해 TPU를 지원 받아 훈련을 진행 중이다.&#xA;물론 구글에 방대한 문서로 설명을 해주고 있긴하나 너무 많아서 뭔가 버튼을 눌렀을때 두려움이 있기 때문에 기본 설정과 관련된 글을 좀 적어보고자한다.&lt;/p&gt;&#xA;&lt;h3 id=&#34;preemptible-vs-on-demand&#34;&gt;preemptible vs on-demand&lt;/h3&gt;&#xA;&lt;p&gt;제공 받을 수 있는 tpu의 일종의 지불 형태라고 볼 수 있다. on-demand는 우리가 일반적으로 클라우드에서 기대하는 필요시에 리소스를 차지하는 방식이고 preemptible은 선점형 방식으로 저렴한 대신에 해당 리전에 사용량이 많으면 반환되는 형태라고 파악하고 있다. on-demand는 편안하게 선택하거나 명령어를 치면 되지만 preemptible 같은 경우에는 cli로 할때는 &amp;ndash;preemptible을 추가하고 웹에서 할때는 선점형에 대한 체크를 꼭 해야 한다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>밑시딥 4 강화학습 내용 정리 (3/10)</title>
+      <link>http://localhost:1313/drafts/rl-03_10/</link>
+      <pubDate>Tue, 20 Feb 2024 07:50:44 +0900</pubDate>
+      <guid>http://localhost:1313/drafts/rl-03_10/</guid>
+      <description>&lt;h2 id=&#34;ch03-벨만-방정식&#34;&gt;CH03 벨만 방정식&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;벨만 방정식 (bellman equation)&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;마르코프 결정 과정(MDP)에서 에이전트가 확률적으로 행동하는 경우에서 상태 가치 함수를 구하는 핵심 방법&lt;/li&gt;&#xA;&lt;li&gt;마르코프 결정 과정에서 성립하는 가장 중요한 방정식이며 많은 강화 학습 알고리즘에 중요한 기초를 제공함.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;기댓값: &amp;lsquo;값 * 그 값이 발생할 확률&amp;rsquo;의 합&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;동시 확률 : $p(x, y) = p(x)p(y|x)$&lt;/li&gt;&#xA;&lt;li&gt;보상의 기댓값&#xA;$$&#xA;\begin{aligned}&#xA;\mathbb{E}[r(x,y)] &amp;amp; = \sum_{x} \sum_{y} p(x,y)r(x,y) \\&#xA;&amp;amp; = \sum_{x} \sum_{y} p(x) p(y|x) r(x,y)&#xA;\end{aligned}&#xA;$$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;유도법&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;수익 $G$부터 살펴 봄.&#xA;$$&#xA;\begin{aligned}&#xA;G_{t} &amp;amp; = R_{t} + \gamma R_{t+1} + \gamma ^ {2} R_{t+2} + &amp;hellip; \\&#xA;&amp;amp; = R_{t} + \gamma (R_{t+1} + \gamma R_{t+2} + &amp;hellip;) \\&#xA;&amp;amp; = R_{t} + \gamma G_{t+1}&#xA;\end{aligned}&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>밑시딥 4 강화학습 내용 정리 (2/10)</title>
+      <link>http://localhost:1313/drafts/rl-02_10/</link>
+      <pubDate>Tue, 20 Feb 2024 04:50:44 +0900</pubDate>
+      <guid>http://localhost:1313/drafts/rl-02_10/</guid>
+      <description>&lt;h2 id=&#34;ch02-마르코프-결정-과정&#34;&gt;CH02 마르코프 결정 과정&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;밴디트 문제에서는 에이전트가 어떤 행동을 취하든 다음에 도전할 문제의 설정은 변하지 않음.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;에이전트의 행동에 따라 상태가 변하는 문제를 다룰 예정&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;마르코프 결정 과정 (Markov Decision Process, MDP)&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;결정 과정: 에이전트가 (환경과 상호작용하면서) 행동을 결정하는 과정&lt;/li&gt;&#xA;&lt;li&gt;상태(state): 에이전트의 행동에 따라 에이전트가 처하는 상황&lt;/li&gt;&#xA;&lt;li&gt;타임 스텝(time step) : 에이전트가 다음 행동을 결정하는 간격&lt;/li&gt;&#xA;&lt;li&gt;에이전트는 눈앞의 보상이 아니라 미래에 얻을 수 있는 보상의 총합을 고려해야 함. 즉, 보상의 총합을 극대화하려 노력해야 함.&lt;/li&gt;&#xA;&lt;li&gt;MDP의 사이클: 상태 $S_{t}$에서 행동 $A_{t}$를 수행하고 보상 $R_{t}$를 받고 다음 상태인 $S_{t+1}$로 전환.&#xA;&lt;ul&gt;&#xA;&lt;li&gt;보상을 $R_{t}$로 처리할 수도 $R_{t+1}$로 처리할 수도 있음.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;MDP는 에이전트와 환경의 상호작용을 수식으로 표현&#xA;&lt;ul&gt;&#xA;&lt;li&gt;상태 전이 : 상태는 어떻게 전이되는가?&lt;/li&gt;&#xA;&lt;li&gt;보상 : 보상은 어떻게 주어지는가?&lt;/li&gt;&#xA;&lt;li&gt;정책 : 에이전트는 행동을 어떻게 결정하는가?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;상태 전이&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>밑시딥 4 강화학습 내용 정리 (1/10)</title>
+      <link>http://localhost:1313/drafts/rl-01_10/</link>
+      <pubDate>Tue, 20 Feb 2024 02:50:44 +0900</pubDate>
+      <guid>http://localhost:1313/drafts/rl-01_10/</guid>
+      <description>&lt;h2 id=&#34;ch01-밴디트-문제&#34;&gt;CH01 밴디트 문제&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;지도 학습 : 입력과 출력이 쌍으로 존재하는 데이터를 이용하여 입력을 적합한 출력으로 변환하는 학습&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;비지도 학습 : 정답 레이블이 없는 데이터를 이용하여 데이터에 숨어 있는 구조 학습&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;강화 학습 : 환경과 상호작용하며 더 나은 해결책을 스스로 학습하는 것&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;에이전트 : 행동 주체&lt;br&gt;&#xA;&lt;img src=&#34;Files/%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;에이전트는 어떤 환경(environment)에 놓여져 환경의 상태(state)를 관찰하고, 상태에 적합한 행동(action)을 취함&lt;/li&gt;&#xA;&lt;li&gt;행동을 취한 결과로 환경의 상태가 변화함.&lt;/li&gt;&#xA;&lt;li&gt;그리고 에이전트는 환경으로부터 보상(reward)을 받음과 동시에 변화된 ‘새로운 상태’를 관찰함.&lt;/li&gt;&#xA;&lt;li&gt;강화학습의 목표는 에이전트가 얻어가는 보상의 총합을 극대화하는 행동 패턴을 익히는 것.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;밴디트 문제&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Efficiently Modeling Long Sequences with Structured State Spaces (2/N)</title>
+      <link>http://localhost:1313/drafts/s4_2-n/</link>
+      <pubDate>Tue, 20 Feb 2024 00:50:44 +0900</pubDate>
+      <guid>http://localhost:1313/drafts/s4_2-n/</guid>
+      <description>&lt;p&gt;지난 글에 이어서 Background 부분을 정리해보고자 한다. s4를 이해하기 위해서는 state space model과 HiPPO 행렬에 대한 이해가 필요해보이고 이를 중심으로 작성하고자 한다.&lt;/p&gt;&#xA;&lt;h1 id=&#34;background12&#34;&gt;Background(1/2)&lt;/h1&gt;&#xA;&lt;h2 id=&#34;state-space-model&#34;&gt;State Space Model&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>Efficiently Modeling Long Sequences with Structured State Spaces (1/N)</title>
+      <link>http://localhost:1313/drafts/s4-1_n/</link>
+      <pubDate>Mon, 19 Feb 2024 22:50:44 +0900</pubDate>
+      <guid>http://localhost:1313/drafts/s4-1_n/</guid>
+      <description>&lt;p&gt;Attention 모델에 대한 대안 중 하나인 Mamba 논문을 읽기 위해서 사전 작업으로 해당 논문을 읽게 되었다. 개인적으로는 새로운 모델에 대한 가능성에 대해 항상 궁금해왔기 때문에 RWKV, Mamba 등에 대해 항상 궁금해 왔었다. 해당 논문을 통해서 다른 모델을 떠올리는 것이 얼마나 힘든일인지 잘 알 수 있게 되었다.&lt;/p&gt;&#xA;&lt;p&gt;해당 글에서는 Introduction 부분에 대해서 정리하고자 한다.&lt;/p&gt;&#xA;&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;해당 논문에서는 크게 두 가지를 s4 모델의 기존 모델 대비 장점으로 제시한다.&#xA;첫번째는 long-range dependencies(LRDs)이고 두 번째는 general-purpose sequence model이다.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -1,7 +1,7 @@
 baseURL = 'https://currybab.github.io/'
 languageCode = 'en-us'
 title = "currybab's devlog"
-theme = "paper"
+theme = "hugo-bearblog"
 
 # disqusShortname = 'currybab'   # use disqus comments
 
@@ -22,6 +22,7 @@ theme = "paper"
     name = 'currybab'
     bio = 'fullstack developer from South Korea'
 
+    hideMadeWithLine = true
 
     # misc
     disableHLJS = false                        # disable highlight.js

@@ -18,5 +18,8 @@ This is a page about »2025 June Week 5 Recently Read«.
 - [mojo gpu puzzles](https://builds.modular.com/puzzles/introduction.html)
     - I'll join modular hackathon this weekend! I'm afraid I can't do nothing about it.
     - I think this puzzle contents are so good for noobs like me :D
+- [How much slower is random access, really?](https://samestep.com/blog/random-access/)
+    - Surprisingly, the difference isn't that big unless it's a really huge array (>1M)
 - [Basic Facts About GPUs](https://damek.github.io/random/basic-facts-about-gpus/)
     - 
+    

@@ -21,5 +21,5 @@ This is a page about »2025 June Week 5 Recently Read«.
 - [How much slower is random access, really?](https://samestep.com/blog/random-access/)
     - Surprisingly, the difference isn't that big unless it's a really huge array (>1M)
 - [Basic Facts About GPUs](https://damek.github.io/random/basic-facts-about-gpus/)
-    - 
+    - A great article explaining basics of gpu programming.
     

@@ -22,3 +22,8 @@ I'm studying DSPy now.
 - [Is It Time To Treat Prompts As Code? A Multi-Use Case Study For Prompt Optimization Using DSPy](https://arxiv.org/pdf/2507.03620)
     - Actually, I already heard about DSPy in the past, but I never try it.
     - I want to study DSPy's optimizer more.
+- [Using AI Without Leaving the Terminal: A Guide to llm](https://kashw1n.com/blog/llm-cli/)
+    - interesting `llm` cli command guide
+- [The Evolution of Caching Libraries in Go](https://maypok86.github.io/otter/blog/cache-evolution)
+- [Satisfies in TypeScript](https://frontendmasters.com/blog/satisfies-in-typescript/)
+- [I trained my own Reasoning LLM using GRPO and Reinforcement Learning!](https://www.youtube.com/watch?v=yGkJj_4bjpE)

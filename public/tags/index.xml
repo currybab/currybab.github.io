@@ -2,87 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on currybab&#39;s devlog</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://currybab.github.io/tags/</link>
     <description>Recent content in Tags on currybab&#39;s devlog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 May 2025 09:57:04 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Jun 2025 00:06:26 +0900</lastBuildDate>
+    <atom:link href="https://currybab.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Ml Compiler</title>
-      <link>http://localhost:1313/tags/ml-compiler/</link>
-      <pubDate>Tue, 27 May 2025 09:57:04 +0900</pubDate>
-      <guid>http://localhost:1313/tags/ml-compiler/</guid>
+      <title>Gpu</title>
+      <link>https://currybab.github.io/tags/gpu/</link>
+      <pubDate>Thu, 26 Jun 2025 00:06:26 +0900</pubDate>
+      <guid>https://currybab.github.io/tags/gpu/</guid>
       <description></description>
     </item>
     <item>
-      <title>Ml Optimizer</title>
-      <link>http://localhost:1313/tags/ml-optimizer/</link>
-      <pubDate>Tue, 27 May 2025 09:57:04 +0900</pubDate>
-      <guid>http://localhost:1313/tags/ml-optimizer/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tinygrad</title>
-      <link>http://localhost:1313/tags/tinygrad/</link>
-      <pubDate>Wed, 26 Mar 2025 11:24:04 +0900</pubDate>
-      <guid>http://localhost:1313/tags/tinygrad/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Train</title>
-      <link>http://localhost:1313/tags/train/</link>
-      <pubDate>Sat, 01 Jun 2024 21:37:33 +0900</pubDate>
-      <guid>http://localhost:1313/tags/train/</guid>
+      <title>Mojo</title>
+      <link>https://currybab.github.io/tags/mojo/</link>
+      <pubDate>Thu, 26 Jun 2025 00:06:26 +0900</pubDate>
+      <guid>https://currybab.github.io/tags/mojo/</guid>
       <description></description>
     </item>
     <item>
       <title>Tpu</title>
-      <link>http://localhost:1313/tags/tpu/</link>
-      <pubDate>Mon, 18 Mar 2024 00:31:04 +0900</pubDate>
-      <guid>http://localhost:1313/tags/tpu/</guid>
+      <link>https://currybab.github.io/tags/tpu/</link>
+      <pubDate>Thu, 26 Jun 2025 00:06:26 +0900</pubDate>
+      <guid>https://currybab.github.io/tags/tpu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ml Compiler</title>
+      <link>https://currybab.github.io/tags/ml-compiler/</link>
+      <pubDate>Tue, 27 May 2025 09:57:04 +0900</pubDate>
+      <guid>https://currybab.github.io/tags/ml-compiler/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ml Optimizer</title>
+      <link>https://currybab.github.io/tags/ml-optimizer/</link>
+      <pubDate>Tue, 27 May 2025 09:57:04 +0900</pubDate>
+      <guid>https://currybab.github.io/tags/ml-optimizer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tinygrad</title>
+      <link>https://currybab.github.io/tags/tinygrad/</link>
+      <pubDate>Wed, 26 Mar 2025 11:24:04 +0900</pubDate>
+      <guid>https://currybab.github.io/tags/tinygrad/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Train</title>
+      <link>https://currybab.github.io/tags/train/</link>
+      <pubDate>Sat, 01 Jun 2024 21:37:33 +0900</pubDate>
+      <guid>https://currybab.github.io/tags/train/</guid>
       <description></description>
     </item>
     <item>
       <title>Trc</title>
-      <link>http://localhost:1313/tags/trc/</link>
+      <link>https://currybab.github.io/tags/trc/</link>
       <pubDate>Mon, 18 Mar 2024 00:31:04 +0900</pubDate>
-      <guid>http://localhost:1313/tags/trc/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>강화학습</title>
-      <link>http://localhost:1313/tags/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/</link>
-      <pubDate>Tue, 20 Feb 2024 07:50:44 +0900</pubDate>
-      <guid>http://localhost:1313/tags/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hippo</title>
-      <link>http://localhost:1313/tags/hippo/</link>
-      <pubDate>Tue, 20 Feb 2024 00:50:44 +0900</pubDate>
-      <guid>http://localhost:1313/tags/hippo/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Mamba</title>
-      <link>http://localhost:1313/tags/mamba/</link>
-      <pubDate>Tue, 20 Feb 2024 00:50:44 +0900</pubDate>
-      <guid>http://localhost:1313/tags/mamba/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>S4</title>
-      <link>http://localhost:1313/tags/s4/</link>
-      <pubDate>Tue, 20 Feb 2024 00:50:44 +0900</pubDate>
-      <guid>http://localhost:1313/tags/s4/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ssm</title>
-      <link>http://localhost:1313/tags/ssm/</link>
-      <pubDate>Tue, 20 Feb 2024 00:50:44 +0900</pubDate>
-      <guid>http://localhost:1313/tags/ssm/</guid>
+      <guid>https://currybab.github.io/tags/trc/</guid>
       <description></description>
     </item>
   </channel>

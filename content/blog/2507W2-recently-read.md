@@ -27,3 +27,4 @@ I'm studying DSPy now.
 - [The Evolution of Caching Libraries in Go](https://maypok86.github.io/otter/blog/cache-evolution)
 - [Satisfies in TypeScript](https://frontendmasters.com/blog/satisfies-in-typescript/)
 - [I trained my own Reasoning LLM using GRPO and Reinforcement Learning!](https://www.youtube.com/watch?v=yGkJj_4bjpE)
+- [My Personal Semantic Search: Using ColBERTv2 and DSPy to Build Efficient Local Search](https://medium.com/stuvalley-ai-nexus/my-personal-semantic-search-using-colbertv2-and-dspy-to-build-efficient-local-search-3174bfda93de)

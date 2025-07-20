@@ -11,6 +11,8 @@ tags = []
 +++
 
 - [To be a better programmer, write little proofs in your head](https://the-nerve-blog.ghost.io/to-be-a-better-programmer-write-little-proofs-in-your-head/)
+- [Crawling a billion web pages in just over 24 hours, in 2025](https://andrewkchan.dev/posts/crawler.html)
+    - very interesting experiment on web crawling
 - [Recsys Keynote: Improving Recommendation Systems & Search in the Age of LLMs - Eugene Yan](https://www.youtube.com/watch?v=2vlCqD6igVA)
     - Good introductory review for LLM-based recommendation systems, I summarized the key points in the video.
     - LLMs for Recsys
@@ -41,4 +43,7 @@ tags = []
         - Data Augmentation: Enrich data, address sparsity
         - Unified Models: Simplify systems, address fragmentation
 - [360Brew: LLM-based Personalized Ranking and Recommendation - Hamed and Maziar, LinkedIn AI](https://www.youtube.com/watch?v=U0S6CfzAY5c)
-    - 
+    - foundation model capturing the lifetime member activity data that solves LinkedIn matching problem
+- [Everything about fp8 quantization](https://lambdalabsml.github.io/openquant/)
+- [Hybrid Invariant-Equivariant Architectures](https://arxiv.org/pdf/2503.05771)
+- [An Introduction to GPU Profiling and Optimization](https://www.bitsand.cloud/posts/profiling-gpus)

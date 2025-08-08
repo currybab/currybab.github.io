@@ -18,3 +18,5 @@ tags = []
 - [DSPy SIMBA explained](https://blog.mariusvach.com/posts/dspy-simba)
 - [How Instacart Built a Modern Search Infrastructure on Postgres](https://tech.instacart.com/how-instacart-built-a-modern-search-infrastructure-on-postgres-c528fa601d54)
 - [Milvus: Building a large-scale vector DB for LINE VOOM's real-time recommendation system](https://techblog.lycorp.co.jp/en/large-scale-vector-db-for-real-time-recommendation-in-line-voom)
+- [Go's race detector has a mutex blind spot](https://doublefree.dev/go-race-mutex-blindspot/)
+- [Inside Go Channels: A deep dive into the Runtime’s concurrency magic](https://medium.com/@rushikeshghatpande/inside-go-channels-a-deep-dive-into-the-runtimes-concurrency-magic-c17b1c983dfe)

@@ -17,6 +17,12 @@ tags = []
   - I think I'm in stage 2 AI Explorer. I want to be in stage 3 AI Strategist.
 - [DSPy SIMBA explained](https://blog.mariusvach.com/posts/dspy-simba)
 - [How Instacart Built a Modern Search Infrastructure on Postgres](https://tech.instacart.com/how-instacart-built-a-modern-search-infrastructure-on-postgres-c528fa601d54)
+  - interesting article about search infrastructure.
+  - moving text search infra from elasticsearch to postgresql.
+  - moving vector search infra from faiss to postgresql(pgvector).
 - [Milvus: Building a large-scale vector DB for LINE VOOM's real-time recommendation system](https://techblog.lycorp.co.jp/en/large-scale-vector-db-for-real-time-recommendation-in-line-voom)
+  - knowhow of LINE VOOM's vector database selection.
 - [Go's race detector has a mutex blind spot](https://doublefree.dev/go-race-mutex-blindspot/)
 - [Inside Go Channels: A deep dive into the Runtime’s concurrency magic](https://medium.com/@rushikeshghatpande/inside-go-channels-a-deep-dive-into-the-runtimes-concurrency-magic-c17b1c983dfe)
+  - good articles about go concurrency and channels.
+- [From GPT-2 to gpt-oss: Analyzing the Architectural Advances](https://magazine.sebastianraschka.com/p/from-gpt-2-to-gpt-oss-analyzing-the?publication_id=1174659&post_id=170506328&isFreemail=true&r=15707&triedRedirect=true)

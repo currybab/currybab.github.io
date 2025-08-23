@@ -14,3 +14,9 @@ tags = []
 - [Open weight LLMs exhibit inconsistent performance across providers](https://simonwillison.net/2025/Aug/15/inconsistent-performance/)
   - Cerebras has best performance and best speed. Interesting! Very disappointed result with aws and azure.
 - [Everything I know about good system design](https://www.seangoedecke.com/good-system-design/)
+- [opencode Tool Review](https://elite-ai-assisted-coding.dev/p/opencode-tool-review)
+- [Designing a SIMD Algorithm from Scratch](https://mcyoung.xyz/2023/11/27/simd-base64/)
+- [Writing Speed-of-Light Flash Attention for 5090 in CUDA C++](https://gau-nernst.github.io/fa-5090/)
+  - i want to understand this article XD
+- [What makes Claude Code so damn good (and how to recreate that magic in your agent)!?](https://minusx.ai/blog/decoding-claude-code/)
+  - recently, I'm playing with claude code and it looks so good. I want to understand how it works.

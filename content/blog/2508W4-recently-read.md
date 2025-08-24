@@ -20,3 +20,4 @@ tags = []
   - i want to understand this article XD
 - [What makes Claude Code so damn good (and how to recreate that magic in your agent)!?](https://minusx.ai/blog/decoding-claude-code/)
   - recently, I'm playing with claude code and it looks so good. I want to understand how it works.
+- [How to Give Your RTX GPU Nearly Infinite Memory for LLM Inference](https://medium.com/data-science-collective/how-to-give-your-rtx-gpu-nearly-infinite-memory-for-llm-inference-de2c57af1e82)

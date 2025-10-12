@@ -17,3 +17,5 @@ tags = []
   - I watched [this video](https://www.youtube.com/watch?v=qYPCL1KGdQA) recently. 
   - In this video, presenter said that checking faster algorithm before considering parallelization is important. 
   - This author did it and it was quite successful.
+- [Post-training 101](https://tokens-for-thoughts.notion.site/post-training-101)
+  - TODO

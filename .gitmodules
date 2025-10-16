@@ -3,4 +3,4 @@
 	url = git@github.com:currybab/hugo-paper.git
 [submodule "themes/hugo-bearblog"]
 	path = themes/hugo-bearblog
-	url = https://github.com/janraasch/hugo-bearblog.git
+	url = git@github.com:currybab/hugo-bearblog.git

@@ -10,7 +10,7 @@ theme = "hugo-bearblog"
     color = 'linen'                           # linen, wheat, gray, light
 
     # header social icons
-    twitter = '__curry_dev__'               # twitter.com/YOUR_TWITTER_ID
+    twitter = 'currybabJP'               # twitter.com/YOUR_TWITTER_ID
     github = 'currybab'                 # github.com/YOUR_GITHUB_ID
     # instagram = 'YOUR_INSTAGRAM_ID'           # instagram.com/YOUR_INSTAGRAM_ID
     linkedin = 'jun-park-933963145'             # linkedin.com/in/YOUR_LINKEDIN_ID

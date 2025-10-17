@@ -19,3 +19,8 @@ device_batch_size=8
 
 It's running now, about 1 day passed. My experiment is logging to [wandb](https://wandb.ai/currybab/nanochat/workspace?nw=nwusercurrybab).
 I will update this post when it's finished. That would be great.
+
+
+### wandb log for training
+- [pre-train](https://wandb.ai/currybab/nanochat?nw=nwusercurrybab)
+- [mid-train](https://wandb.ai/currybab/nanochat-mid?nw=nwusercurrybab)

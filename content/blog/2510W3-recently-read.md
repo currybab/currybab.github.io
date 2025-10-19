@@ -15,3 +15,7 @@ tags = []
   - if I can't work on LLM training, I wish I could work on model development like this thing
 - [Let’s Build the GPT Tokenizer: A Complete Guide to Tokenization in LLMs](https://www.fast.ai/posts/2025-10-16-karpathy-tokenizers)
   - really good article to help understand tokenizer using in nanochat
+- [How Terminal Bench Became the Standard Agents Benchmark](https://www.youtube.com/watch?v=rTuU8FUlIvY)
+  - I think terminal bench is best coding agent benchmark right now.
+  - I'm currently deliberating a lot on choosing a coding CLI, and I'm planning to use this metric as a reference.
+  - It was great to hear about why this benchmark was created and what considerations went into it.

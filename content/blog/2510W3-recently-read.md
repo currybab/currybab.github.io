@@ -1,6 +1,6 @@
 +++
 title = "2510W2 Recently Read"
-date = "2025-10-10T15:31:25+09:00"
+date = "2025-10-16T15:31:25+09:00"
 
 #
 # description is optional

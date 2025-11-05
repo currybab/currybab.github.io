@@ -1,5 +1,5 @@
 +++
-title = "2510W5 Recently Read"
+title = "2511W1 Recently Read"
 date = "2025-10-30T22:20:00+09:00"
 
 #

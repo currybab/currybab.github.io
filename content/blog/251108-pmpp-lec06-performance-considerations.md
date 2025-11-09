@@ -45,6 +45,8 @@ source: [Lecture 06 - Performance Considerations](https://www.youtube.com/watch?
 
 ### DRAM Bank
 
+![DRAM Bank](https://github.com/user-attachments/assets/96d982fc-c0f8-4a89-b9c5-319f6503848d)
+
 - Row Decoder에 Row Address를 제공함.
 - Row Decoder는 우리가 원하는 행을 결정하고 이 출력 중 하나를 1로 설정하고 나머지는 0으로 설정함.
 - 그리고 이 디코딩된 신호를 DRAM 뱅크로 전달함.

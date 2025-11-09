@@ -45,7 +45,7 @@ source: [Lecture 06 - Performance Considerations](https://www.youtube.com/watch?
 
 ### DRAM Bank
 
-![DRAM Bank](https://github.com/user-attachments/assets/96d982fc-c0f8-4a89-b9c5-319f6503848d)
+![DRAM Bank](https://img.buidl.day/blog/DRAM-Bank.png)
 
 - Row Decoder에 Row Address를 제공함.
 - Row Decoder는 우리가 원하는 행을 결정하고 이 출력 중 하나를 1로 설정하고 나머지는 0으로 설정함.
@@ -139,7 +139,7 @@ source: [Lecture 06 - Performance Considerations](https://www.youtube.com/watch?
   
 ## 일반적인 최적화 기법 체크리스트
 
-![checklist of common optimization](https://github.com/user-attachments/assets/ac41b1a4-7620-45ec-b0dc-a986bb67a3ff)
+![checklist of common optimization](https://img.buidl.day/blog/optimization-checklist.png)
 
 ## 최적화 사이의 긴장감 (Tensions Between Optimizations)
 

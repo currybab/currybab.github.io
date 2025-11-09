@@ -21,3 +21,7 @@ tags = []
 - [Coding Agents Are Outliers](https://vivekhaldar.com/articles/coding-agents-are-outliers/)
   - 아주 동의하는 글이다.
   - 다른 측면에서 얘기하면 나는 코딩을 못하는 llm이 다른 에이전트 환경에서 선택받을 수 있을 것이라고 생각하지 않는다.
+- [Implementing a fast Tensor Core matmul on the Ada Architecture](https://www.spatters.ca/mma-matmul)
+  - ada 아키텍쳐에서 tensor core를 활용하여 matmul을 구현하여 cutlass와 같은 성능을 구현하는 내용.
+  - 곧 GPU MODE 해커톤에 참여해볼 생각인데 이 내용을 이해하고 있어야 하지 않을까 싶어서 읽어봤다.
+

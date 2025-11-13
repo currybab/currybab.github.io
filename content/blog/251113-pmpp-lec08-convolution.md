@@ -1,5 +1,5 @@
 +++
-title = "Pmpp Lec07 Convolution 요약"
+title = "Pmpp Lec08 Convolution 요약"
 date = "2025-11-13T21:18:33+09:00"
 
 #

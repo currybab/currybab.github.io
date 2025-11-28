@@ -1,5 +1,5 @@
 +++
-title = "Pmpp Lec12 Scan Brent Kung"
+title = "Pmpp Lec12 Scan (Brent-Kung)"
 date = "2025-11-19T08:46:02+09:00"
 
 #

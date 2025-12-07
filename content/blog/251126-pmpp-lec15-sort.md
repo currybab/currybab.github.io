@@ -1,5 +1,5 @@
 +++
-title = "251126 Pmpp Lec15 Sort"
+title = "Pmpp Lec15 Sort"
 date = "2025-11-26T16:26:03+09:00"
 
 #

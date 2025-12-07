@@ -18,3 +18,4 @@ tags = []
 - [Continuous batching](https://huggingface.co/blog/continuous_batching)
 - [I wrote a kernel that makes sparse LLMs faster and smaller on consumer GPUs even at low sparsity.](https://www.reddit.com/r/LocalLLaMA/comments/1pbag5i/i_wrote_a_kernel_that_makes_sparse_llms_faster/)
 - [Notes About Nvidia GPU Shared Memory Banks](https://feldmann.nyc/blog/smem-microbenchmarks)
+- [NVIDIA Tensor Core Evolution: From Volta To Blackwell](https://newsletter.semianalysis.com/p/nvidia-tensor-core-evolution-from-volta-to-blackwell)

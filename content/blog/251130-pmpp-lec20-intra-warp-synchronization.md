@@ -1,5 +1,5 @@
 +++
-title = "251130 Pmpp Lec20 Intra Warp Synchronization"
+title = "Pmpp Lec20 Intra Warp Synchronization"
 date = "2025-11-30T02:09:47+09:00"
 
 #

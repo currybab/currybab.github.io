@@ -156,4 +156,73 @@ Source: [Lecture 23: Tensor Cores](https://www.youtube.com/watch?v=hQ9GPnV0-50)
 - 커스텀 로드 밸런싱, L2 locality, outer loop shenanigans를 시도하는 경우
     - 커스텀 타일 스케줄러만 작성하면 그시점부터는 다른 모든 것이 동일하게 유지됨.
 
+## Hopper GEMM Kernel Optimization 101
 
+- TMA를 통한 Global Memory 접근
+    - 하드웨어 지원 경계 초과(Out-Of-Bounds) 판정, 일명 predication
+    - 레지스터 압박 및 ALU 연산 감소
+- TMA와 연계하여 프로그래밍 가능한 멀티캐스트를 지원하는 Thread Block Cluster
+    - 시간적/공간적 지역성 활용을 통한 L2 대역폭 증폭. 단, 양자화(quantization)와 점유율(occupancy) 희생
+- Shared Memory를 통한 깊은 소프트웨어 파이프라이닝
+    - 더 나은 지연 시간 커버리지. 단, 동시 실행 Thread Block 수 감소
+- Warp-Group MMA 연산
+    - 여러 비동기 MMA 명령어가 동시 비행(in-flight) 중
+- 비동기 TMA 생산자와 MMA 소비자 간의 Mbarrier 기반 동기화
+- 뱅크 충돌 회피를 위한 Shared Memory 데이터 스위즐링
+    - MMA와 TMA가 함께 타일 크기와 데이터 타입을 규정
+
+## Hopper GEMM Kernel Optimization 201
+
+- Warp Specialization (워프 특화)
+    - 다양한 시나리오에서 최적의 메모리 및 연산 처리량 달성
+- Persistent Schedule (지속형 스케줄)
+    - 커널 내에서 하드웨어 및 소프트웨어 파이프라이닝의 고정 비용을 분산(amortize)
+- MMA의 그림자 속에서 에필로그 숨기기 (일명 Ping-Pong Schedule)
+    - 작지만 연산 병목(compute bound)인 GEMM에 매우 중요
+- 효율성 향상을 위한 타일 크기 최대화 (일명 Cooperative Schedule)
+    - 레지스터 압박의 더 나은 처리
+    - 동기화 프리미티브의 효율적 사용
+
+## Hopper GEMM Kernel Optimization 501
+
+- 최적의 Thread Block 래스터화 및 스위즐링
+    - 지역성(locality) 활용 촉진
+    - https://github.com/NVIDIA/cutlass/blob/main/media/docs/efficient_gemm.md#threadblock-rasterization
+- Stream-K 스케줄링
+    - 점유율(occupancy)과 효율성 간의 최적 트레이드오프 탐색
+    - https://arxiv.org/abs/2301.03598
+- MMA 이전의 효율적인 입력 변환
+    - 레지스터 사용 최적화
+    - 파이프라인화된 RS 커널
+    - https://github.com/NVIDIA/cutlass/blob/main/include/cutlass/gemm/collective/sm90_mma_tma_gmma_rs_warpspecialized.hpp
+- 최적의 명령어 시퀀스 생성
+    - 프리페칭, 캐시 관리
+
+## 어떤 레시피를 언제 사용할까?
+
+- Persistent 커널은 훌륭함! 거의 항상 이득
+- "작은" K, 큰 MN 형태 → Persistent Ping-Pong 스케줄로 프롤로그/에필로그 오버헤드 숨기기
+    - 큰 K에서도 무거운 에필로그 퓨전이 있다면? → Ping-Pong Persistent
+- "큰" K, 큰 MN 형태 → Cooperative Persistent
+    - 더 큰 누산기(acc) 타일을 위해 Multistage Persistent
+    - 단순 직접 저장(direct store) 에필로그로 메인루프에 더 많은 SMEM 용량 확보도 이득일 수 있음
+- 작은 MN, 큰 K 형태 → Cooperative + Stream-K 로드 밸런싱
+- HBM 대역폭 병목인 MN 형태? → L2 지역성을 위한 더 영리한 타일 래스터화
+- FP8 학습의 경우 → 고정밀 누적을 수행하는 CUTLASS FP8 레시피 따르기
+- FP8 양자화/역양자화의 경우 → amax 및 보조(aux) 텐서를 퓨징하는 CUTLASS 에필로그 참고
+
+## 기타 경험 법칙
+
+- 1 CTA / SM 점유율로 시작 – 더 높은 점유율은 최후의 수단으로만
+- 클러스터 크기 2는 거의 항상 이득. 여기서 시작하여 가장 큰 타일 차원에 TMA 멀티캐스트 적용.
+- 더 큰 타일 크기의 경우, M을 타일링하는 것보다 더 큰 WGMMA N 형태 선호
+- 가능하면 WGMMA와 TMA에 더 큰 스위즐 사용 (타일 형태의 함수)
+- 가능하면 A와 B 모두 SMEM에서 소싱
+- K-major가 아닌 16비트 미만 입력 피연산자의 경우, 다음 순서로 선호
+    - swap AB 있든 없든 A를 RMEM에서 소싱하는 WGMMA 변형 사용
+    - swap AB + B에 대한 파이프라인화된 퓨즈드 전치(transpose)와 함께 A를 RMEM에서 소싱하는 WGMMA 변형 사용
+- 에필로그 퓨전의 경우 – 여유가 많음
+- 메인루프 퓨전의 경우
+    - 가능하면 이전 커널의 에필로그에 퓨즈
+    - A를 RMEM에서 소싱하는 WGMMA 변형 사용
+    - WGMMA B 입력에 퓨징 피하기 – SMEM 왕복이 발생하므로

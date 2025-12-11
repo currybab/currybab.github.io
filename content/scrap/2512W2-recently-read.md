@@ -12,6 +12,8 @@ tags = []
 
 - [Tensor Parallelism (TP) in Transformers: 5 Minutes to Understand](https://huggingface.co/blog/qgallouedec/tp)
     - TP의 기본 개념 및 트랜스포머 아키텍쳐에서의 적용을 쉽게 설명한 글
+- [An applied introduction to CuTeDSL](https://veitner.bearblog.dev/an-applied-introduction-to-cutedsl/)
+    - 해커톤을 진행하다보니 cute-dsl 관련해서 많이 알아보게 되는것 같다. thread-value layout에 대한 개념이 조금 더 명확해졌음.
 - [Implementing a fast Tensor Core matmul on the Ada Architecture](https://www.spatters.ca/mma-matmul)
 - [Outperforming cuBLAS on H100: a Worklog](https://cudaforfun.substack.com/p/outperforming-cublas-on-h100-a-worklog)
 - [Matrix Multiplication on Blackwell](https://www.modular.com/matrix-multiplication-on-blackwell)

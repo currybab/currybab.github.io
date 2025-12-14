@@ -14,12 +14,10 @@ tags = []
     - TP의 기본 개념 및 트랜스포머 아키텍쳐에서의 적용을 쉽게 설명한 글
 - [An applied introduction to CuTeDSL](https://veitner.bearblog.dev/an-applied-introduction-to-cutedsl/)
     - 해커톤을 진행하다보니 cute-dsl 관련해서 많이 알아보게 되는것 같다. thread-value layout에 대한 개념이 조금 더 명확해졌음.
-- [Implementing a fast Tensor Core matmul on the Ada Architecture](https://www.spatters.ca/mma-matmul)
-- [Outperforming cuBLAS on H100: a Worklog](https://cudaforfun.substack.com/p/outperforming-cublas-on-h100-a-worklog)
-- [Matrix Multiplication on Blackwell](https://www.modular.com/matrix-multiplication-on-blackwell)
-- [Notes About Nvidia GPU Shared Memory Banks](https://feldmann.nyc/blog/smem-microbenchmarks)
+- [Lecture 77: Domain Specific Languages for GPU Kernels](https://www.youtube.com/watch?v=5qSN-R_E3w0)
+    - Cute DSL에 대한 개략적인 인트로 영상
+    - Tri Dao 님이 나와서 설명해주기 때문에 성능에 대한 의심이 사라짐.
+- [Lecture 57: CuTe](https://www.youtube.com/watch?v=vzUhbDO_0qk)
+    - Cute의 가장 중요한 개념인 layout에 대해 설명하는 영상.
+    - 아직 갈길은 멀지만 그래도 왜 어떻게 나왔는지는 알것 같기도 하다.
 
-
-### todo
-
-- [Continuous batching](https://huggingface.co/blog/continuous_batching)

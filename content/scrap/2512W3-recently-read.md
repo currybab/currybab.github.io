@@ -10,6 +10,13 @@ date = "2025-12-15T21:09:20+09:00"
 tags = []
 +++
 
+- [AI Kernel Generation: What's working, what's not, what's next – Natalie Serrino, Gimlet Labs](https://youtu.be/6guQG_tGt0o?si=1w2z0I5HF0Ibm_x5)
+    - AI agent를 통해 torch에서 gpu kernel 최적화를 다룸.
+    - 아직은 해당 커널을 열심히 연구한 사람들에게 밀리는 수준이지만, 이미 개발된 최적화를 다루는건 잘한다고 한다.
+    - 우리나라도 비싼 GPU 많이 들어온다는데 GPU 커널 최적화가 많이 중요해질 것 같다. 궁금하다.
+- [Code World Model: Building World Models for Computation – Jacob Kahn, FAIR Meta](https://www.youtube.com/watch?v=sYgE4ppDFOQ)
+    - CWM에 대한 개념 및 접근법을 설명한 영상
+    - AI 코드 서비스에 내장 되었을 때의 결과가 궁금하다.
 - [Notes About Nvidia GPU Shared Memory Banks](https://feldmann.nyc/blog/smem-microbenchmarks)
     - Shared Memory Bank에 대한 좋은 설명글
 - [Lecture 86: Getting Started with CuTe DSL](https://www.youtube.com/watch?v=9-dfte_N3yk)

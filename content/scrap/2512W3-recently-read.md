@@ -17,6 +17,8 @@ tags = []
 - [Code World Model: Building World Models for Computation – Jacob Kahn, FAIR Meta](https://www.youtube.com/watch?v=sYgE4ppDFOQ)
     - CWM에 대한 개념 및 접근법을 설명한 영상
     - AI 코드 서비스에 내장 되었을 때의 결과가 궁금하다.
+- [Stanford CS230 | Autumn 2025 | Lecture 9: Career Advice in AI](https://www.youtube.com/watch?v=AuZoDsNmG_s)
+    - 이 정신 없는 AI 시대에서 어떤 마인드를 갖고 일을 해야 할지에 대해 방향을 잡아주는 좋은 영상.
 - [Notes About Nvidia GPU Shared Memory Banks](https://feldmann.nyc/blog/smem-microbenchmarks)
     - Shared Memory Bank에 대한 좋은 설명글
 - [Lecture 86: Getting Started with CuTe DSL](https://www.youtube.com/watch?v=9-dfte_N3yk)

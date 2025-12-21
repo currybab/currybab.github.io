@@ -24,11 +24,6 @@ tags = []
 - [Lecture 86: Getting Started with CuTe DSL](https://www.youtube.com/watch?v=9-dfte_N3yk)
     - CuTe DSL의 기본적인 사용법에 대한 영상
     - nvfp4 해커톤을 참여하고 있는데 첫 과제는 cuda cpp로 했었는데 이제는 CuTe DSL로 넘어가야할 것 같아서 시청 했음.
-- [Implementing a fast Tensor Core matmul on the Ada Architecture](https://www.spatters.ca/mma-matmul)
-- [Outperforming cuBLAS on H100: a Worklog](https://cudaforfun.substack.com/p/outperforming-cublas-on-h100-a-worklog)
-- [Matrix Multiplication on Blackwell](https://www.modular.com/matrix-multiplication-on-blackwell)
-
-
-### todo
-
-- [Continuous batching](https://huggingface.co/blog/continuous_batching)
+- [Mini-SGLang: Efficient Inference Engine in a Nutshell](https://lmsys.org/blog/2025-12-17-minisgl/)
+    - 5000줄로만 구현된 SGLang의 경량화된 구현체로 Tensor Parallelism, Overlap Scheduling, Chunked Prefill, Radix Cache, JIT CUDA kernel 등이 구현되어 있다고 한다.
+    - 안그래도 vllm과 SGLang 구현에 대해 곧 뜯어보고 싶다고 생각했는데 너무 좋은 플젝이 적절한 타이밍에 나와 감사하다.
